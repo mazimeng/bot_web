@@ -10,6 +10,8 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
+    "moment": "^2.29.4",
     "vant": "^4.0.10",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
