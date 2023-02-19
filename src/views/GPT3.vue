@@ -37,7 +37,7 @@ const sendMessage = (text: string) => {
     payload.conversationId = conversation.conversationId
     payload.messageId = conversation.messageId
   }
-  fetch('api/messages', {
+  fetch('gpt3/api/messages', {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
