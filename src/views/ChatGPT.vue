@@ -33,7 +33,7 @@ const getAnswer = (questionId: string) => {
   }
 
   setTimeout(() => {
-    fetch(`api/answers?question_id=${questionId}`).then((response) => response.json())
+    fetch(`chatgpt/api/answers?question_id=${questionId}`).then((response) => response.json())
       .then((data) => {
         console.log(data?.data?.text)
         if (data?.data?.text) {
@@ -73,7 +73,7 @@ const sendQuestion = (text: string) => {
     "parent_id": parentId
   }
   console.log("sendQuestion", payload)
-  fetch('api/questions', {
+  fetch('chatgpt/api/questions', {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -122,7 +122,7 @@ const handleSendMessage = () => {
     <div style="position: fixed; bottom: 0; width: 100vw;">
       <van-field size="large" placeholder="请输入消息" v-model="outgoingMessage" :disabled="thinking" />
       <van-button block type="primary" size="large" :loading="thinking" @click="handleSendMessage">
-        发送
+        ChatGPT
       </van-button>
     </div>
   </div>

@@ -3,7 +3,7 @@ import ChatGPT from './views/ChatGPT.vue'
 </script>
 
 <template>
-  <ChatGPT />
+  <router-view></router-view>
 </template>
 
 <style scoped></style>

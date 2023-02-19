@@ -25,6 +25,8 @@ let messages = ref<Message[]>([])
 const outgoingMessage = ref()
 const conversation: Conversation = {}
 const thinking = ref<boolean>(false)
+const MACHINE_ID: string = "机器"
+const HUMAN_ID: string = "人类"
 
 const sendMessage = (text: string) => {
   thinking.value = true
@@ -49,13 +51,13 @@ const sendMessage = (text: string) => {
         text: data.text,
         direction: "incoming",
         timestamp: moment().format('YYYY-MM-DD hh:mm:ss'),
-        speaker: "机器人"
+        speaker: MACHINE_ID
       }
 
       messages.value.unshift(msg)
       outgoingMessage.value = ""
     }).catch(err => {
-      showToast('机器人出错了');
+      showToast(MACHINE_ID + '出错了');
     }).then(() => {
       thinking.value = false
     })
@@ -66,7 +68,7 @@ const handleSendMessage = () => {
     text: outgoingMessage.value,
     direction: "outgoing",
     timestamp: moment().format('YYYY-MM-DD hh:mm:ss'),
-    speaker: "我"
+    speaker: HUMAN_ID
   }
   messages.value.unshift(msg)
 
@@ -84,9 +86,9 @@ const handleSendMessage = () => {
       </div>
     </div>
     <div style="position: fixed; bottom: 0; width: 100vw;">
-      <van-field size="large" placeholder="请输入消息" v-model="outgoingMessage" :disabled="thinking"/>
+      <van-field size="large" placeholder="请输入消息" v-model="outgoingMessage" :disabled="thinking" />
       <van-button block type="primary" size="large" :loading="thinking" @click="handleSendMessage">
-        发送
+        GPT3
       </van-button>
     </div>
   </div>
