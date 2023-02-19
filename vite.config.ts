@@ -9,9 +9,12 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     proxy: {
+      // '/api': {
+      //   target: 'https://bot.64kb.org/',
+      //   changeOrigin: true
+      // }
       '/api': {
-        target: 'https://bot.64kb.org/',
-        changeOrigin: true
+        target: 'http://127.0.0.1:5000/'
       }
     }
   },
