@@ -19,7 +19,7 @@ let parentId: string
 const MACHINE_ID: string = "机器"
 const HUMAN_ID: string = "人类"
 const DIRECTION_INCOMING = "incoming"
-const MAX_PATIENCE: number = 10
+const MAX_PATIENCE: number = 30
 let patience: number = MAX_PATIENCE
 
 const getAnswer = (questionId: string) => {
